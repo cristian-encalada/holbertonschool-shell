@@ -1,12 +1,12 @@
 # Shell Basics Project  
 > Repository created to work on shell related tasks - 08.02.2023  
-> Holberton Dev Bootcamp - Montevideo  <br/>
+> Holberton Dev Bootcamp - Montevideo  <br />\
 ##Learned Topics  
 * What is the Shell
 * Shell Navigation (cd, pwd, ls commands)
 * Looking Around (ls, less, file commands)
 * Manipulating Files (cp, mv, rm, mkdir commands)
-* Working with Commands (type, which, help, man commands)  <br/>
+* Working with Commands (type, which, help, man commands)  <br />\
 ##Tasks completed
 - [x] [0-current_working_directory](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/0-current_working_directory)
 	- Script that prints the absolute path name of the current working directory.
@@ -21,7 +21,7 @@
 - [x] [5-listfilesdigitonly](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/5-listfilesdigitonly)
 	- Script that displays current directory contents.
 - [x] [6-firstdirectory](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/6-firstdirectory)
-	- script that creates a directory named my_first_directory in the /tmp/ directory.
+	- Script that creates a directory named my_first_directory in the /tmp/ directory.
 - [x] [7-movethatfile](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/7-movethatfile)
 	- Script that moves the file betty from /tmp/ to /tmp/my_first_directory.
 - [x] [8-firstdelete](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/8-firstdelete)
