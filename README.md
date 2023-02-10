@@ -1,6 +1,6 @@
 # Shell Basics Project
 >Repository created to work on two projects related with the shell  
->Holberton Dev Bootcamp - Montevideo 2023 <br>
+>Holberton Dev Bootcamp - Montevideo 2023 \  
 ###Projects completed  
 - [x] [Shell Basics](https://github.com/cristian-encalada/holbertonschool-shell/tree/master/basics)
 	- Project about basic navigation, manipulation of files and essential commands.
