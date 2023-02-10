@@ -1,10 +1,10 @@
 # Shell Permissions Project  
 > Repository created to work on shell permissions tasks  
-> Holberton Dev Bootcamp - Montevideo  <br /> \
-##Learned Topics  
+> Holberton Dev Bootcamp - Montevideo  <br>
+###Learned Topics  
 * Permissions (chmod, sudo, su, chown, chgrp)
-* How to create users and groups <br /> \
-##Tasks completed
+* How to create users and groups <br>
+###Tasks completed
 - [x] [0-iam_betty](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/0-iam_betty)
 	- Script that switches the current user to the user betty.
 - [x] [1-who_am_i](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/1-who_am_i)
