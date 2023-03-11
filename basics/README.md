@@ -61,7 +61,7 @@ total 32
 $
 ```
 - [x] [4-listmorefiles](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/4-listmorefiles)    
-	- Script that displays current directory contents, including hidden files (starting with .). Use the long format. <br>
+	- Script that displays current directory contents, including hidden files (starting with `.`). Use the long format. <br>
 Example:
 ```
 $ ./4-listmorefiles
@@ -95,7 +95,7 @@ drwxr-xr-x@ 43 501 20 1462 Jan 25 00:19 ..
 $
 ```
 - [x] [6-firstdirectory](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/6-firstdirectory)
-	- Script that creates a directory named my_first_directory in the /tmp/ directory.<br>
+	- Script that creates a directory named ``my_first_directory`` in the ``/tmp/`` directory.<br>
 Example:
 ```
 $ ./6-firstdirectory
@@ -104,7 +104,7 @@ $ file /tmp/my_first_directory/
 $
 ```
 - [x] [7-movethatfile](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/7-movethatfile)
-	- Script that moves the file betty from /tmp/ to /tmp/my_first_directory.<br>
+	- Script that moves the file ``betty`` from ``/tmp/`` to ``/tmp/my_first_directory``.<br>
 Example:
 ```
 $ ./7-movethatfile
@@ -113,8 +113,8 @@ betty
 $
 ```
 - [x] [8-firstdelete](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/8-firstdelete)
-	- Script that deletes the file betty.<br>
-		- The file betty is in /tmp/my_first_directory
+	- Script that deletes the file ``betty``.<br>
+		- The file ``betty`` is in ``/tmp/my_first_directory``
 Example:
 ```
 $ ./8-firstdelete
@@ -122,7 +122,7 @@ $ ls /tmp/my_first_directory/
 $
 ```
 - [x] [9-firstdirdeletion](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/9-firstdirdeletion)
-	- Script that deletes the directory my_first_directory that is in the /tmp directory.<br>
+	- Script that deletes the directory ``my_first_directory`` that is in the ``/tmp`` directory.<br>
 Example:
 ```
 $ ./9-firstdirdeletion
@@ -145,9 +145,9 @@ julien@ubuntu:/tmp$ pwd
 /tmp
 ```
 - [x] [11-lists](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/11-lists)
-	- Script that lists all files (even ones with names beginning with a period character, which are normally hidden) in the current directory and the parent of the working directory and the /boot directory (in this order), in long format.<br>
+	- Script that lists all files (even ones with names beginning with a period character, which are normally hidden) in the current directory and the parent of the working directory and the ``/boot`` directory (in this order), in long format.<br>
 - [x] [12-file_type](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/12-file_type)
-	- Script that prints the type of the file named iamafile. The file iamafile will be in the /tmp directory<br>
+	- Script that prints the type of the file named ``iamafile``. The file ``iamafile`` will be in the ``/tmp`` directory<br>
 	- Note that depending on the file, the output of your script will be different.<br>
 Example:
 ```
@@ -155,7 +155,7 @@ ubuntu@ip-172-31-63-244:~$ ./12-file_type
 /tmp/iamafile: ELF 64-bit LSB  executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.24, BuildID[sha1]=bd39c07194a778ccc066fc963ca152bdfaa3f971, stripped
 ```
 - [x] [13-symbolic_link](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/13-symbolic_link)
-	- Scrip that creates a symbolic link to /bin/ls, named __ls__<br>
+	- Scrip that creates a symbolic link to ``/bin/ls``, named ``__ls__``<br>
 Example:
 ```
 ubuntu@ip-172-31-63-244:/tmp/sym$ ls -la
@@ -171,9 +171,10 @@ lrwxrwxrwx  1 ubuntu ubuntu      7 Sep 20 03:24 __ls__ -> /bin/ls
 ```
 - [x] [14-copy_html](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/14-copy_html)
 	- Script that copies all the HTML files from the current working directory to the parent of the working directory, but only copy files that did not exist in the parent of the working directory or were newer than the versions in the parent of the working directory.<br>
-	- You can consider that all HTML files have the extension .html
+	- You can consider that all HTML files have the extension ``.html``
 - [x] [15-lets_move](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/15-lets_move)
-	- Script that moves all files beginning with an uppercase letter to the directory /tmp/u <br>
+	- Script that moves all files beginning with an uppercase letter to the directory ``/tmp/u`` <br>
+	- You can assume that the directory ``/tmp/u`` will exist when we will run your script <br>
 Example:
 ```
 ubuntu@ip-172-31-63-244:/tmp/sym$ ls -la
@@ -203,7 +204,7 @@ drwxrwxr-x 3 ubuntu ubuntu 4096 Sep 20 03:33 ..
 -rw-rw-r-- 1 ubuntu ubuntu    0 Sep 20 03:32 Elif_ym
 ```
 - [x] [16-clean_emacs](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/16-clean_emacs)
-	- Script that deletes all files in the current working directory that end with the character ~ <br>
+	- Script that deletes all files in the current working directory that end with the character ``~`` <br>
 Example:
 ```
 ubuntu@ip-172-31-63-244:/tmp/sym$ ls
@@ -214,7 +215,7 @@ main.c
 ubuntu@ip-172-31-63-244:/tmp/emacs$
 ```
 - [x] [17-tree](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/17-tree)
-	- Script that creates the directories welcome/, welcome/to/ and welcome/to/school in the current directory.<br>
+	- Script that creates the directories ``welcome/``, ``welcome/to/`` and ``welcome/to/school`` in the current directory.<br>
 	- You are only allowed to use two spaces (and lines) in your script, not more.<br>
 Example:
 ```
