@@ -10,17 +10,17 @@ Holberton Dev Bootcamp - Montevideo
 - [x] [The Feynman Learning Technique](https://fs.blog/feynman-learning-technique/) 
 ### Learning Objectives
 * How to navigate in an Unix system
-	- Using 'cd' command
+	- Using **cd** command
 * How to list files and directories
-	- Using 'ls' command
+	- Using **ls** command
 * How to display the content of a file
-	- Using 'less' or 'cat' commands
+	- Using **less** or 'cat' commands
 * How to create a file or directory
-	- Create an empty file: 'touch' command. Create a new directory: 'mkdir' command.
+	- Create an empty file: **touch** command. Create a new directory: **mkdir** command.
 * How to remove a file or directory
-	- Remove file: 'rm' command. Remove directory 'rmdir' or 'rm -r <directory_name>'
+	- Remove file: **rm** command. Remove directory **rmdir** or **rm -r <directory_name>**
 * How to move or copy a file or directory
-	- Move: 'mv' command. Copy: 'cp' command.
+	- Move: **mv** command. Copy: **cp** command.
 ### Quiz answers
 * Question #0
 	- Which command should you use to display the current path of your current directory?
