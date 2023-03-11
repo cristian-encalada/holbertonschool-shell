@@ -19,7 +19,7 @@ Holberton Dev Bootcamp - Montevideo
 * All your scripts must be executable. To make your file executable, use the `chmod` command: `chmod u+x file`. Later, we’ll learn more about how to utilize this command.
 ## Tasks completed
 - [x] [0-current_working_directory](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/basics/0-current_working_directory)
-	- Script that prints the absolute path name of the current working directory.
+	- Script that prints the absolute path name of the current working directory.<br>
 Example:
 ```
 $ ./0-current_working_directory
