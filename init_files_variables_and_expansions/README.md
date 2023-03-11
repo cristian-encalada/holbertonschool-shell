@@ -11,264 +11,305 @@ Holberton Dev Bootcamp - Montevideo
 * All your files should end with a new line [why?](https://unix.stackexchange.com/questions/18743/whats-the-point-in-adding-a-new-line-to-the-end-of-a-file/18789)
 * The first line of all your files should be exactly ``#!/bin/bash``
 * A ``README.md`` file, at the root of the folder of the project, describing what each script is doing
-* You are not allowed to use backticks, ``&&``, ``||`` or ``;``
+* You are not allowed to use ``bc``, ``sed`` or ``awk``
 * All your files must be executable
 ## Tasks completed
-- [x] [0-iam_betty](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/0-iam_betty)
-	- Script that switches the current user to the user ``betty``.
-		- You should use exactly 8 characters for your command (+1 character for the new line)
-		- You can assume that the user ``betty`` will exist when we will run your script <br>
+- [x] [0-alias](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/0-alias)
+	- Create a script that creates an alias.
+		- Name: ``ls``
+		- Value: ``rm *``<br>
 Example:
 ```
-julien@ubuntu:/tmp/h$ tail -1 0-iam_betty | wc -c
-9
-julien@ubuntu:/tmp/h$
+julien@ubuntu:/tmp/0x03$ ls
+0-alias  file1  file2
+julien@ubuntu:/tmp/0x03$ source ./0-alias 
+julien@ubuntu:/tmp/0x03$ ls
+julien@ubuntu:/tmp/0x03$ \ls
+julien@ubuntu:/tmp/0x03$ 
 ```
-- [x] [1-who_am_i](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/1-who_am_i)
-	- Script that prints the effective username of the current user. <br>
+- [x] [1-hello_you](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/1-hello_you)
+	- Create a script that prints ``hello user``, where user is the current Linux user. <br>
 Example:
 ```
-julien@ubuntu:/tmp/h$ ./1-who_am_i
-julien
-julien@ubuntu:/tmp/h$ 
+julien@ubuntu:/tmp/0x03$ id
+uid=1000(julien) gid=1000(julien) groups=1000(julien),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),113(lpadmin),128(sambashare)
+julien@ubuntu:/tmp/0x03$ ./1-hello_you 
+hello julien
+julien@ubuntu:/tmp/0x03$ 
 ```
-- [x] [2-groups](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/2-groups)
-	- Script that prints all the groups the current user is part of. <br>
+- [x] [2-path](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/2-path)
+	- Add ``/action`` to the ``PATH``. ``/action`` should be the last directory the shell looks into when looking for a program.<br>
 Example:
 ```
-julien@ubuntu:/tmp/h$ ./2-groups
-julien adm cdrom sudo dip plugdev lpadmin sambashare
-julien@ubuntu:/tmp/h$ 
+julien@ubuntu:/tmp/0x03$ echo $PATH
+/home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+julien@ubuntu:/tmp/0x03$ source ./2-path 
+julien@ubuntu:/tmp/0x03$ echo $PATH
+/home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/action
+julien@ubuntu:/tmp/0x03$ 
 ```
-- [x] [3-new_owner](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/3-new_owner)    
-	- Script that changes the owner of the file ``hello`` to the user ``betty``.<br>
+- [x] [3-paths](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/3-paths)
+	- Create a script that counts the number of directories in the ``PATH``.<br>
 Example:
 ```
-julien@ubuntu:/tmp/h$ ls -l
-total 4
--rwxrw-r-- 1 julien julien 30 Sep 20 14:23 3-new_owner
--rw-rw-r-- 1 julien julien  0 Sep 20 14:18 hello
-julien@ubuntu:/tmp/h$ sudo ./3-new_owner 
-julien@ubuntu:/tmp/h$ ls -l
-total 4
--rwxrw-r-- 1 julien julien 30 Sep 20 14:23 3-new_owner
--rw-rw-r-- 1 betty  julien  0 Sep 20 14:18 hello
-julien@ubuntu:/tmp/h$
+julien@ubuntu:/tmp/0x03$ echo $PATH
+/home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+julien@ubuntu:/tmp/0x03$ . ./3-paths 
+11
+julien@ubuntu:/tmp/0x03$ PATH=/home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:::::/hello
+julien@ubuntu:/tmp/0x03$ . ./3-paths 
+12
+julien@ubuntu:/tmp/0x03$ 
 ```
-- [x] [4-empty](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/4-empty)    
-	- Script that creates an empty file called ``hello``. 
-- [x] [5-execute](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/5-execute)
-	- Script that adds execute permission to the owner of the file ``hello``.
-		- The file ``hello`` will be in the working directory <br>
-```
-julien@ubuntu:/tmp/h$ ls -l
-total 8
--rwxrw-r-- 1 julien julien 28 Sep 20 14:26 5-execute
--rw-rw-r-- 1 julien julien 23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ ./hello
-bash: ./hello: Permission denied
-julien@ubuntu:/tmp/h$ ./5-execute 
-julien@ubuntu:/tmp/h$ ls -l
-total 8
--rwxrw-r-- 1 julien julien 28 Sep 20 14:26 5-execute
--rwxrw-r-- 1 julien julien 23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$
-```
-- [x] [6-multiple_permissions](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/6-multiple_permissions)
-	- Script that adds execute permission to the owner and the group owner, and read permission to other users, to the file ``hello``.
-		- The file ``hello`` will be in the working directory <br>
-```
-julien@ubuntu:/tmp/h$ ls -l
-total 8
--rwxrw-r-- 1 julien julien 36 Sep 20 14:31 6-multiple_permissions
--rw-r----- 1 julien julien 23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ ./6-multiple_permissions 
-julien@ubuntu:/tmp/h$ ls -l
-total 8
--rwxrw-r-- 1 julien julien 36 Sep 20 14:31 6-multiple_permissions
--rwxr-xr-- 1 julien julien 23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ 
-```
-- [x] [7-everybody](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/7-everybody)
-	- Script that adds execution permission to the owner, the group owner and the other users, to the file ``hello``
-		- The file ``hello`` will be in the working directory
-		- You are not allowed to use commas for this script <br>
-```
-julien@ubuntu:/tmp/h$ ls -l
-total 8
--rwxrw-r-- 1 julien julien 28 Sep 20 14:35 7-everybody
--rw-r----- 1 julien julien 23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ ./7-everybody 
-julien@ubuntu:/tmp/h$ ls -l
-total 8
--rwxrw-r-- 1 julien julien 28 Sep 20 14:35 7-everybody
--rwxr-x--x 1 julien julien 23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ 
-```
-- [x] [8-James_Bond](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/8-James_Bond)
-	- Script that sets the permission to the file ``hello`` as follows:
-		- Owner: no permission at all
-		- Group: no permission at all
-		- Other users: all the permissions
-		- The file ``hello`` will be in the working directory You are not allowed to use commas for this script <br>
-```
-julien@ubuntu:/tmp/h$ ls -l
-total 8
--rwxrw-r-- 1 julien julien 28 Sep 20 14:40 8-James_Bond
--rwxr-x--x 1 julien julien 23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ ./8-James_Bond 
-julien@ubuntu:/tmp/h$ ls -l
-total 8
--rwxrw-r-- 1 julien julien 28 Sep 20 14:40 8-James_Bond
--------rwx 1 julien julien 23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ 
-```
-- [x] [9-John_Doe](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/9-John_Doe)
-	- Script that sets the mode of the file ``hello`` to this: <br>
-		- The file ``hello`` will be in the working directory
-		- You are not allowed to use commas for this script
-```
--rwxr-x-wx 1 julien julien 23 Sep 20 14:25 hello
-```
-- [x] [10-mirror_permissions](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/10-mirror_permissions)
-	- Script that sets the mode of the file ``hello`` the same as ``olleh``’s mode. Both files will be in the working directory. <br>
-		- Note: the mode of ``olleh`` will not always be ``664``. Make sure your script works for any mode. <br>
+- [x] [4-global_variables](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/4-global_variables)
+	- Create a script that lists environment variables.<br>
 Example:
 ```
-julien@ubuntu:/tmp/h$ ls -l
-total 8
--rwxrw-r-- 1 julien julien 42 Sep 20 14:45 10-mirror_permissions
--rwxr-x-wx 1 julien julien 23 Sep 20 14:25 hello
--rw-rw-r-- 1 julien julien  0 Sep 20 14:43 olleh
-julien@ubuntu:/tmp/h$ ./10-mirror_permissions 
-julien@ubuntu:/tmp/h$ ls -l
-total 8
--rwxrw-r-- 1 julien julien 42 Sep 20 14:45 10-mirror_permissions
--rw-rw-r-- 1 julien julien 23 Sep 20 14:25 hello
--rw-rw-r-- 1 julien julien  0 Sep 20 14:43 olleh
-julien@ubuntu:/tmp/h$ 
+julien@ubuntu:/tmp/0x03$ source ./4-global_variables
+CC=gcc
+CDPATH=.:~:/usr/local:/usr:/
+CFLAGS=-O2 -fomit-frame-pointer
+COLORTERM=gnome-terminal
+CXXFLAGS=-O2 -fomit-frame-pointer
+DISPLAY=:0
+DOMAIN=hq.garrels.be
+e=
+TOR=vi
+FCEDIT=vi
+FIGNORE=.o:~
+G_BROKEN_FILENAMES=1
+GDK_USE_XFT=1
+GDMSESSION=Default
+GNOME_DESKTOP_SESSION_ID=Default
+GTK_RC_FILES=/etc/gtk/gtkrc:/nethome/franky/.gtkrc-1.2-gnome2
+GWMCOLOR=darkgreen
+GWMTERM=xterm
+HISTFILESIZE=5000
+history_control=ignoredups
+HISTSIZE=2000
+HOME=/nethome/franky
+HOSTNAME=octarine.hq.garrels.be
+INPUTRC=/etc/inputrc
+IRCNAME=franky
+JAVA_HOME=/usr/java/j2sdk1.4.0
+LANG=en_US
+LDFLAGS=-s
+LD_LIBRARY_PATH=/usr/lib/mozilla:/usr/lib/mozilla/plugins
+LESSCHARSET=latin1
+LESS=-edfMQ
+LESSOPEN=|/usr/bin/lesspipe.sh %s
+LEX=flex
+LOCAL_MACHINE=octarine
+LOGNAME=franky
+[...]
+julien@ubuntu:/tmp/0x03$ 
 ```
-- [x] [11-directories_permissions](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/11-directories_permissions)
-	- Script that adds execute permission to all subdirectories of the current directory for the owner, the group owner and all other users. Regular files should not be changed. <br>
+- [x] [5-local_variables](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/5-local_variables)
+	- Create a script that lists all local variables and environment variables, and functions.<br>
+```
+julien@ubuntu:/tmp/0x03$ . ./5-local_variables
+BASH=/bin/bash
+BASHOPTS=checkwinsize:cmdhist:complete_fullquote:expand_aliases:extglob:extquote:force_fignore:histappend:interactive_comments:progcomp:promptvars:sourcepath
+BASH_ALIASES=()
+BASH_ARGC=()
+BASH_ARGV=()
+BASH_CMDS=()
+BASH_COMPLETION_COMPAT_DIR=/etc/bash_completion.d
+BASH_LINENO=()
+BASH_REMATCH=()
+BASH_SOURCE=()
+BASH_VERSINFO=([0]="4" [1]="3" [2]="46" [3]="1" [4]="release" [5]="x86_64-pc-linux-gnu")
+BASH_VERSION='4.3.46(1)-release'
+CLUTTER_IM_MODULE=xim
+COLUMNS=133
+COMPIZ_CONFIG_PROFILE=ubuntu
+COMP_WORDBREAKS=$' \t\n"\'><=;|&(:'
+DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-Fg27Lr20bq
+DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path
+DESKTOP_SESSION=ubuntu
+[...]
+julien@ubuntu:/tmp/0x03$ 
+```
+- [x] [6-create_local_variable](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/6-create_local_variable)
+	- Create a script that creates a new local variable.
+		- Name: ``BEST``
+		- Value: ``School``
+- [x] [7-create_global_variable](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/7-create_global_variable)
+	- Create a script that creates a new global variable.
+		- Name: ``BEST``
+		- Value: ``School``
+- [x] [8-true_knowledge](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/8-true_knowledge)
+	- Write a script that prints the result of the addition of 128 with the value stored in the environment variable ``TRUEKNOWLEDGE``, followed by a new line.<br>
+```
+julien@production-503e7013:~$ export TRUEKNOWLEDGE=1209
+julien@production-503e7013:~$ ./8-true_knowledge | cat -e
+1337$
+julien@production-503e7013:~$
+```
+- [x] [9-divide_and_rule](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/9-divide_and_rule)
+	- Write a script that prints the result of ``POWER`` divided by ``DIVIDE``, followed by a new line.
+		- ``POWER`` and ``DIVIDE`` are environment variables<br>
+```
+julien@production-503e7013:~$ export POWER=42784
+julien@production-503e7013:~$ export DIVIDE=32
+julien@production-503e7013:~$ ./9-divide_and_rule | cat -e
+1337$
+julien@production-503e7013:~$
+```
+- [x] [10-love_exponent_breath](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/10-love_exponent_breath)
+	- Write a script that displays the result of ``BREATH`` to the power ``LOVE``
+		- ``BREATH`` and ``LOVE`` are environment variables
+		- The script should display the result, followed by a new line <br>
+```
+julien@production-503e7013:~/$ export BREATH=4
+julien@production-503e7013:~/$ export LOVE=3
+julien@production-503e7013:~/$ ./10-love_exponent_breath
+64
+julien@production-503e7013:~/$
+```
+- [x] [11-binary_to_decimal](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/11-binary_to_decimal)
+	- Write a script that converts a number from base 2 to base 10.
+		- The number in base 2 is stored in the environment variable ``BINARY``
+		- The script should display the number in base 10, followed by a new line <br>
 Example:
 ```
-julien@ubuntu:/tmp/h$ ls -l
-total 20
--rwxrwxr-x 1 julien julien   24 Sep 20 14:53 11-directories_permissions
-drwx------ 2 julien julien 4096 Sep 20 14:49 dir0
-drwx------ 2 julien julien 4096 Sep 20 14:49 dir1
-drwx------ 2 julien julien 4096 Sep 20 14:49 dir2
--rw-rw-r-- 1 julien julien   23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ ./11-directories_permissions 
-julien@ubuntu:/tmp/h$ ls -l
-total 20
--rwxrwxr-x 1 julien julien   24 Sep 20 14:53 11-directories_permissions
-drwx--x--x 2 julien julien 4096 Sep 20 14:49 dir0
-drwx--x--x 2 julien julien 4096 Sep 20 14:49 dir1
-drwx--x--x 2 julien julien 4096 Sep 20 14:49 dir2
--rw-rw-r-- 1 julien julien   23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ 
+julien@production-503e7013:~/$ export BINARY=10100111001
+julien@production-503e7013:~/$ ./11-binary_to_decimal
+1337
+julien@production-503e7013:~/$
 ```
-- [x] [12-directory_permissions](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/12-directory_permissions)
-	- Script that creates a directory called ``my_dir`` with permissions ``751`` in the working directory. <br>
+- [x] [12-combinations](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/12-combinations)
+	- Create a script that prints all possible combinations of two letters, except oo.
+		- Letters are lower cases, from ``a`` to ``z``
+		- One combination per line
+		- The output should be alpha ordered, starting with ``aa``
+		- Do not print ``oo``
+		- Your script file should contain maximum 64 characters <br>
+```
+julien@ubuntu:/tmp/0x03$ echo $((26 ** 2 -1))
+675
+julien@ubuntu:/tmp/0x03$ ./12-combinations | wc -l
+675
+julien@ubuntu:/tmp/0x03$ 
+julien@ubuntu:/tmp/0x03$ ./12-combinations | tail -303 | head -10
+oi
+oj
+ok
+ol
+om
+on
+op
+oq
+or
+os
+julien@ubuntu:/tmp/0x03$ 
+```
+- [x] [13-print_float](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/13-print_float)
+	- Write a script that prints a number with two decimal places, followed by a new line.
+		- The number will be stored in the environment variable ``NUM``. <br>
 Example:
 ```
-julien@ubuntu:/tmp/h$ ls -l
-total 20
--rwxrwxr-x 1 julien julien   39 Sep 20 14:59 12-directory_permissions
-drwx--x--x 2 julien julien 4096 Sep 20 14:49 dir0
-drwx--x--x 2 julien julien 4096 Sep 20 14:49 dir1
-drwx--x--x 2 julien julien 4096 Sep 20 14:49 dir2
--rw-rw-r-- 1 julien julien   23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ ./12-directory_permission s
-julien@ubuntu:/tmp/h$ ls -l
-total 24
--rwxrwxr-x 1 julien julien   39 Sep 20 14:59 12-directory_permissions
-drwx--x--x 2 julien julien 4096 Sep 20 14:49 dir0
-drwx--x--x 2 julien julien 4096 Sep 20 14:49 dir1
-drwx--x--x 2 julien julien 4096 Sep 20 14:49 dir2
-drwxr-x--x 2 julien julien 4096 Sep 20 14:59 my_dir
--rw-rw-r-- 1 julien julien   23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ 
+ubuntu@ip-172-31-63-244:~/0x03$ export NUM=0
+ubuntu@ip-172-31-63-244:~/0x03$ ./13-print_float
+0.00
+ubuntu@ip-172-31-63-244:~/0x03$ export NUM=98
+ubuntu@ip-172-31-63-244:~/0x03$ ./13-print_float
+98.00
+ubuntu@ip-172-31-63-244:~/0x03$ export NUM=3.14159265359
+ubuntu@ip-172-31-63-244:~/0x03$ ./13-print_float
+3.14
+ubuntu@ip-172-31-63-244:~/0x03$
 ```
-- [x] [13-change_group](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/13-change_group)
-	- Script that changes the group owner to ``school`` for the file ``hello``.
-		- The file ``hello`` will be in the working directory <br>
+- [x] [14-decimal_to_hexadecimal](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/14-decimal_to_hexadecimal)
+	- Write a script that converts a number from base 10 to base 16.
+		- The number in base 10 is stored in the environment variable ``DECIMAL``
+		- The script should display the number in base 16, followed by a new line <br>
+```
+julien@production-503e7013:~/$ export DECIMAL=16
+julien@production-503e7013:~/$ ./14-decimal_to_hexadecimal
+10
+julien@production-503e7013:~/$ export DECIMAL=1337
+julien@production-503e7013:~/$ ./14-decimal_to_hexadecimal | cat -e
+539$
+julien@production-503e7013:~/$ export DECIMAL=15
+julien@production-503e7013:~/$ ./14-decimal_to_hexadecimal | cat -e
+f$
+julien@production-503e7013:~/$
+```
+- [x] [15-rot13](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/15-rot13)
+	- Write a script that encodes and decodes text using the rot13 encryption. Assume ASCII. <br>
 Example:
 ```
-julien@ubuntu:/tmp/h$ ls -l
-total 24
--rwxrwxr-x 1 julien julien   34 Sep 20 15:03 13-change_group
-drwx--x--x 2 julien julien 4096 Sep 20 14:49 dir0
-drwx--x--x 2 julien julien 4096 Sep 20 14:49 dir1
-drwx--x--x 2 julien julien 4096 Sep 20 14:49 dir2
-drwxr-x--x 2 julien julien 4096 Sep 20 14:59 my_dir
--rw-rw-r-- 1 julien julien   23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ sudo ./13-change_group 
-julien@ubuntu:/tmp/h$ ls -l
-total 24
--rwxrwxr-x 1 julien julien      34 Sep 20 15:03 13-change_group
-drwx--x--x 2 julien julien    4096 Sep 20 14:49 dir0
-drwx--x--x 2 julien julien    4096 Sep 20 14:49 dir1
-drwx--x--x 2 julien julien    4096 Sep 20 14:49 dir2
-drwxr-x--x 2 julien julien    4096 Sep 20 14:59 my_dir
--rw-rw-r-- 1 julien school   23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ 
+julien@production-503e7013:~/shell/fun_with_the_shell$ cat quote
+"Everyone is a proponent of strong encryption."
+- Dorothy E. Denning
+julien@production-503e7013:~/shell/fun_with_the_shell$ ./15-rot13 < quote
+"Rirelbar vf n cebcbarag bs fgebat rapelcgvba."
+- Qbebgul R. Qraavat
+julien@production-503e7013:~/shell/fun_with_the_shell$
+
 ```
-- [x] [14-change_owner_and_group](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/14-change_owner_and_group)
-	- Script that changes the owner to ``vincent`` and the group owner to ``staff`` for all the files and directories in the working directory.<br>
-```
-julien@ubuntu:/tmp/h$ ls -l
-total 24
--rwxrwxr-x 1 julien julien   36 Sep 20 15:06 14-change_owner_and_group
-drwx--x--x 2 julien julien 4096 Sep 20 14:49 dir0
-drwx--x--x 2 julien julien 4096 Sep 20 14:49 dir1
-drwx--x--x 2 julien julien 4096 Sep 20 14:49 dir2
-drwxr-x--x 2 julien julien 4096 Sep 20 14:59 my_dir
--rw-rw-r-- 1 julien julien   23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ sudo ./14-change_owner_and_group 
-julien@ubuntu:/tmp/h$ ls -l
-total 24
--rwxrwxr-x 1 vincent staff   36 Sep 20 15:06 14-change_owner_and_group
-drwx--x--x 2 vincent staff 4096 Sep 20 14:49 dir0
-drwx--x--x 2 vincent staff 4096 Sep 20 14:49 dir1
-drwx--x--x 2 vincent staff 4096 Sep 20 14:49 dir2
-drwxr-x--x 2 vincent staff 4096 Sep 20 14:59 my_dir
--rw-rw-r-- 1 vincent staff   23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ 
-```
-- [x] [15-symbolic_link_permissions](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/15-symbolic_link_permissions)
-	- Script that changes the owner and the group owner of ``_hello`` to ``vincent`` and ``staff`` respectively.
-		- The file ``_hello`` is in the working directory
-		- The file ``_hello`` is a symbolic link <br>
+- [x] [16-odd](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/16-odd)
+	- Write a script that prints every other line from the input, starting with the first line. <br>
 Example:
 ```
-julien@ubuntu:/tmp/h$ ls -l
-total 24
--rwxrwxr-x 1 julien julien   44 Sep 20 15:12 15-symbolic_link_permissions
--rw-rw-r-- 1 julien julien   23 Sep 20 14:25 hello
-lrwxrwxrwx 1 julien julien    5 Sep 20 15:10 _hello -> hello
-julien@ubuntu:/tmp/h$ sudo ./15-symbolic_link_permissions 
-julien@ubuntu:/tmp/h$ ls -l
-total 24
--rwxrwxr-x 1 julien julien      44 Sep 20 15:12 15-symbolic_link_permissions
--rw-rw-r-- 1 julien julien      23 Sep 20 14:25 hello
-lrwxrwxrwx 1 vincent  staff    5 Sep 20 15:10 _hello -> hello
-julien@ubuntu:/tmp/h$ 
+ubuntu@ip-172-31-63-244:/$ \ls -1
+bin
+boot
+dev
+etc
+home
+initrd.img
+lib
+lib32
+lib64
+libx32
+lost+found
+media
+mnt
+opt
+proc
+root
+run
+sbin
+srv
+sys
+t
+#t#
+t~
+tmp
+usr
+var
+vmlinuz
+whoareyou
+ubuntu@ip-172-31-63-244:/$ \ls -1 | ./c-odd
+bin
+dev
+home
+lib
+lib64
+lost+found
+mnt
+proc
+run
+srv
+t
+t~
+usr
+vmlinuz
+ubuntu@ip-172-31-63-244:/$
 ```
-- [x] [16-if_only](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/permissions/16-if_only)
-	- Script that changes the owner of the file ``hello`` to ``vincent`` only if it is owned by the user ``guillaume``.
-		- The file ``hello`` will be in the working directory.<br>
+- [x] [17-water_and_stir](https://github.com/cristian-encalada/holbertonschool-shell/blob/master/init_files_variables_and_expansions/17-water_and_stir)
+	- Write a shell script that adds the two numbers stored in the environment variables ``WATER`` and ``STIR`` and prints the result.
+		- ``WATER`` is in base ``water``
+		- ``STIR`` is in base ``stir``.
+		- The result should be in base ``bestchol`` <br>
 Example:
 ```
-julien@ubuntu:/tmp/h$ ls -l
-total 24
--rwxrwxr-x 1 julien    julien      47 Sep 20 15:18 16-if_only 
--rw-rw-r-- 1 guillaume julien      23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ sudo ./16-if_only 
-julien@ubuntu:/tmp/h$ ls -l
-total 24
--rwxrwxr-x 1 julien julien      47 Sep 20 15:18 16-if_only 
--rw-rw-r-- 1 vincent  julien      23 Sep 20 14:25 hello
-julien@ubuntu:/tmp/h$ 
+julien@production-503e7013:~$ export WATER="ewwatratewa"
+julien@production-503e7013:~$ export STIR="ti.itirtrtr"
+julien@production-503e7013:~$ ./17-water_and_stir
+shtbeolhc
+julien@production-503e7013:~$
 ```
+For more info about this last problem check: [BEHLNORT Explained](https://medium.com/@LisaLeung2/behlnort-explained-8ad6d121c9f4)
