@@ -1,9 +1,16 @@
-# Shell Permissions Project  
+# Shell IO Redirections and Filters  
 > Repository created to work on shell permissions tasks  <br>
 Holberton Dev Bootcamp - Montevideo  
-## Learned Topics  
-* Permissions (chmod, sudo, su, chown, chgrp)
-* How to create users and groups
+## Learned Topics
+### Shell, I/O Redirection
+* What do the commands head, tail, find, wc, sort, uniq, grep, tr do
+* How to redirect standard output to a file
+* How to get standard input from a file instead of the keyboard
+* How to send the output from one program to the input of another program
+* How to combine commands and filters with redirections
+### Special Characters
+* What are special characters
+* Understand what do the white spaces, single quotes, double quotes, backslash, comment, pipe, command separator, tilde and how and when to use them
 ## Requirements
 * Allowed editors: ``vi``, ``vim``, ``emacs``
 * All your scripts will be tested on Ubuntu 20.04 LTS
